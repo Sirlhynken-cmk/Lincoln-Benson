@@ -3,17 +3,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================
+         SEO + SOCIAL
+         ============================================================ -->
     <title>Lincoln Benson · Enterprise Application Support Engineer</title>
+    <meta name="description" content="Enterprise Application Support Engineer and Digital Facilitator. Supported Blackboard deployment across 286+ institutions and trained 15,000+ users across Nigeria. Available for IT consultancy." />
+    <meta name="keywords" content="Lincoln Benson, Enterprise Application Support, Blackboard Learn, LMS Implementation, SaaS Administrator, IT Consultant, Digital Facilitator, Nigeria" />
+    <meta name="author" content="Lincoln Benson" />
+    <meta name="theme-color" content="#050d1f" />
+
+    <!-- Open Graph (for WhatsApp, LinkedIn, Facebook previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lincoln Benson · Enterprise Application Support Engineer" />
+    <meta property="og:description" content="Supported Blackboard deployment across 286+ institutions. Trained 15,000+ users. IT Consultant & Digital Facilitator." />
+    <meta property="og:url" content="https://sirlhynken-cmk.github.io/Lincoln-Benson/" />
+    <meta property="og:site_name" content="Lincoln Benson" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lincoln Benson · Enterprise Application Support Engineer" />
+    <meta name="twitter:description" content="Supported Blackboard deployment across 286+ institutions. Trained 15,000+ users. IT Consultant & Digital Facilitator." />
+
+    <!-- Favicon: inline SVG, glowing LB initials -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='60%25'%3E%3Cstop offset='0%25' stop-color='%2300d4ff'/%3E%3Cstop offset='100%25' stop-color='%2305070f'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)' stroke='%2300d4ff' stroke-width='2'/%3E%3Ctext x='50' y='66' font-family='Orbitron,sans-serif' font-size='40' font-weight='900' text-anchor='middle' fill='%23050d1f'%3ELB%3C/text%3E%3C/svg%3E" />
+
+    <!-- ============================================================
+         GOOGLE ANALYTICS 4
+         Replace G-XXXXXXXXXX with your Measurement ID
+         ============================================================ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2CJJKTMPM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-E2CJJKTMPM');
+    </script>
+
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --navy: #050d1f;
-            --navy-2: #0A1628;
             --navy-mid: #1a3a6b;
             --navy-light: #2b5a9e;
             --cyan: #0077b6;
@@ -22,7 +59,6 @@
             --purple: #7C3AED;
             --purple-glow: rgba(124, 58, 237, 0.4);
             --bg-deep: #060d1c;
-            --glass: rgba(255, 255, 255, 0.06);
             --glass-border: rgba(0, 212, 255, 0.18);
             --text: #e6f1ff;
             --text-dim: #8ba3c7;
@@ -779,6 +815,45 @@
             font-size: 0.84rem;
             line-height: 1.55;
         }
+        /* Case study expander */
+        .case-study-toggle {
+            background: transparent;
+            border: none;
+            color: var(--cyan-bright);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            margin-top: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0;
+        }
+        .case-study-toggle:hover { text-shadow: 0 0 10px var(--cyan-glow); }
+        .case-study-toggle i { transition: transform 0.3s; }
+        .case-study-toggle.open i { transform: rotate(180deg); }
+        .case-study {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
+            color: #b8cde6;
+            font-size: 0.86rem;
+            line-height: 1.65;
+        }
+        .case-study.open { max-height: 500px; margin-top: 12px; }
+        .case-study ul { list-style: none; padding-left: 0; margin-top: 8px; }
+        .case-study ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 4px;
+        }
+        .case-study ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--cyan-bright);
+        }
 
         /* ============================================================
            CONSULTANCY
@@ -835,7 +910,7 @@
         }
 
         /* ============================================================
-           PERSONAL SERVICES (NEW)
+           PERSONAL SERVICES
            ============================================================ */
         .services-grid {
             display: grid;
@@ -912,9 +987,11 @@
             filter: drop-shadow(0 0 6px var(--cyan-glow));
             font-size: 0.85rem;
         }
-        .service-btn {
+        .service-actions {
             margin-top: auto;
-            align-self: flex-start;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         /* ============================================================
@@ -981,7 +1058,7 @@
         }
 
         /* ============================================================
-           CONTACT
+           CONTACT + FORM
            ============================================================ */
         .contact-card {
             padding: 36px 40px;
@@ -1009,6 +1086,65 @@
         }
         .contact-item span { font-weight: 600; font-size: 0.92rem; }
 
+        .contact-form {
+            margin-top: 28px;
+            padding: 32px 36px;
+            border-radius: 26px;
+        }
+        .contact-form h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cyan-bright);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+        .contact-form p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .form-field { display: flex; flex-direction: column; }
+        .form-field.full { grid-column: 1 / -1; }
+        .form-field label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            color: var(--cyan-bright);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .form-field input,
+        .form-field textarea {
+            background: rgba(0, 212, 255, 0.04);
+            border: 1px solid rgba(0, 212, 255, 0.18);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            transition: 0.25s;
+            outline: none;
+        }
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: var(--cyan-bright);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.25);
+            background: rgba(0, 212, 255, 0.06);
+        }
+        .form-field textarea { min-height: 110px; resize: vertical; }
+        .form-actions {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         /* ============================================================
            FOOTER
            ============================================================ */
@@ -1023,6 +1159,46 @@
             z-index: 1;
         }
         .footer a { color: var(--cyan-bright); text-decoration: none; }
+        .footer .last-updated {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            opacity: 0.65;
+        }
+
+        /* ============================================================
+           FLOATING SCROLL-TO-TOP
+           ============================================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+            color: var(--cyan-bright);
+            border: 1px solid var(--cyan-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: 0.35s;
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 32px var(--cyan-glow);
+        }
 
         /* ============================================================
            REVEAL
@@ -1039,7 +1215,7 @@
            ============================================================ */
         .achievement-tray {
             position: fixed;
-            bottom: 24px;
+            bottom: 90px;
             right: 24px;
             z-index: 1000;
             display: flex;
@@ -1078,7 +1254,7 @@
         }
 
         /* ============================================================
-           GAME — BYTE CATCHER
+           GAME
            ============================================================ */
         .game-toggle {
             position: fixed;
@@ -1119,7 +1295,6 @@
             padding: 20px;
         }
         .game-overlay.active { display: flex; }
-
         .game-modal {
             width: 100%;
             max-width: 720px;
@@ -1292,6 +1467,7 @@
             .contact-card { flex-direction: column; align-items: flex-start; }
             .consultancy-card { flex-direction: column; text-align: center; }
             .consultancy-card .content ul { justify-content: center; }
+            .form-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 640px) {
             .hero-content h1 { font-size: 2.2rem; }
@@ -1309,13 +1485,52 @@
             .game-hud { font-size: 0.68rem; gap: 12px; }
             .skill-row { grid-template-columns: 100px 1fr 70px; }
             .learning-card .roadmap .item { grid-template-columns: 120px 1fr 40px; }
+            .contact-form { padding: 24px 22px; }
+        }
+
+        /* ============================================================
+           PRINT STYLESHEET
+           ============================================================ */
+        @media print {
+            body { background: white; color: #000; }
+            .bg-layer, .xp-bar-wrap, .xp-label, .navbar, .game-toggle,
+            .game-overlay, .achievement-tray, .back-to-top,
+            .hero-buttons, .contact-form, .footer .last-updated {
+                display: none !important;
+            }
+            section { padding: 20px 0; page-break-inside: avoid; }
+            .glass, .timeline-item, .stat-card, .project-card,
+            .service-card, .skill-category, .about-story,
+            .about-facts, .hero-card {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+            }
+            .section-title, .hero-content h1, .hero-content h1 span,
+            .timeline-title, .stat-card .number, .hero-stat .num {
+                color: #000 !important;
+                -webkit-text-fill-color: #000 !important;
+                text-shadow: none !important;
+                background: none !important;
+            }
+            .section-kicker, .hero-sub, .timeline-company,
+            .project-card .meta, .contact-item span {
+                color: #333 !important;
+            }
+            .hero { min-height: auto; padding: 20px 0; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .about-grid, .skills-grid, .project-grid, .stats-grid,
+            .services-grid, .learning-card {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
 <body>
 
 <!-- ============================================================
-     FUTURISTIC BACKGROUND
+     BACKGROUND
      ============================================================ -->
 <div class="bg-layer" aria-hidden="true">
     <div class="bg-gradient"></div>
@@ -1326,13 +1541,6 @@
     </div>
     <div class="bg-circuit">
         <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.5"/>
-                    <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.4"/>
-                </linearGradient>
-            </defs>
-
             <g class="trace">
                 <path d="M0,140 L220,140 L220,320 L470,320 L470,190 L720,190"/>
                 <path d="M1220,0 L1220,220 L1020,220 L1020,440 L1270,440 L1270,620"/>
@@ -1343,14 +1551,12 @@
                 <path d="M100,900 L100,820 L340,820 L340,650 L580,650"/>
                 <path d="M1340,900 L1340,820 L1080,820 L1080,640 L840,640"/>
             </g>
-
             <g>
                 <path class="trace-glow" d="M0,140 L220,140 L220,320 L470,320 L470,190 L720,190"/>
                 <path class="trace-glow t2" d="M1220,0 L1220,220 L1020,220 L1020,440 L1270,440 L1270,620"/>
                 <path class="trace-glow t3" d="M0,620 L200,620 L200,770 L420,770 L420,880"/>
                 <path class="trace-glow t4" d="M1440,320 L1320,320 L1320,520 L1120,520 L1120,720 L920,720"/>
             </g>
-
             <g>
                 <circle class="node" cx="220" cy="140" r="3"/>
                 <circle class="node p" cx="470" cy="320" r="3"/>
@@ -1375,9 +1581,7 @@
     </div>
 </div>
 
-<!-- ============================================================
-     XP BAR + NAV
-     ============================================================ -->
+<!-- XP BAR + NAV -->
 <div class="xp-bar-wrap"><div class="xp-bar" id="xpBar"></div></div>
 <div class="xp-label" id="xpLabel">XP · 0%</div>
 
@@ -1397,9 +1601,7 @@
     </div>
 </nav>
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
+<!-- HERO -->
 <section class="hero" id="home">
     <div class="container hero-grid">
         <div class="hero-content">
@@ -1411,8 +1613,8 @@
             </div>
             <div class="hero-buttons">
                 <a href="Lincoln_Bensonxsirlhynken7@gmail.com.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+                <a href="Lincoln_Benson.vcf" download class="btn btn-outline"><i class="fas fa-address-card"></i> Save Contact</a>
                 <a href="https://wa.me/2348151457503" class="btn btn-cyan"><i class="fab fa-whatsapp"></i> Hire Me</a>
-                <a href="https://www.linkedin.com/in/lincoln-benson-60220421b" class="btn btn-outline"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat glass"><div class="num" data-count="286" data-suffix="+">0</div><div class="label">Institutions</div></div>
@@ -1438,9 +1640,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     ABOUT
-     ============================================================ -->
+<!-- ABOUT -->
 <section id="about">
     <div class="container">
         <div class="section-kicker reveal">// 01 · WHO I AM</div>
@@ -1469,17 +1669,16 @@
                 <div class="fact"><i class="fas fa-handshake"></i><span><strong>Consultancy</strong> IT Consultant</span></div>
                 <div class="fact"><i class="fas fa-envelope"></i><span><strong>Email</strong> sirlhynken7@gmail.com</span></div>
                 <div class="fact"><i class="fas fa-phone"></i><span><strong>Phone</strong> +234 815 145 7503</span></div>
-                <div style="margin-top:18px;">
+                <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:8px;">
                     <a href="Lincoln_Bensonxsirlhynken7@gmail.com.pdf" download class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Download Full CV</a>
+                    <a href="Lincoln_Benson.vcf" download class="btn btn-outline btn-sm"><i class="fas fa-address-card"></i> vCard</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================================
-     ACHIEVEMENTS
-     ============================================================ -->
+<!-- ACHIEVEMENTS -->
 <section id="achievements">
     <div class="container">
         <div class="section-kicker reveal">// 02 · IMPACT METRICS</div>
@@ -1496,9 +1695,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     EXPERIENCE
-     ============================================================ -->
+<!-- EXPERIENCE -->
 <section id="experience">
     <div class="container">
         <div class="section-kicker reveal">// 03 · CAREER TIMELINE</div>
@@ -1605,9 +1802,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     SKILLS
-     ============================================================ -->
+<!-- SKILLS -->
 <section id="skills">
     <div class="container">
         <div class="section-kicker reveal">// 04 · CAPABILITIES</div>
@@ -1688,9 +1883,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     PROJECTS
-     ============================================================ -->
+<!-- PROJECTS -->
 <section id="projects">
     <div class="container">
         <div class="section-kicker reveal">// 05 · SELECTED WORK</div>
@@ -1701,6 +1894,20 @@
                 <h4>Blackboard National Deployment</h4>
                 <div class="meta">286+ institutions · 15K+ users</div>
                 <div class="impact">Led nationwide deployment and training across Nigeria's higher education sector</div>
+                <button class="case-study-toggle" data-target="case-blackboard">
+                    View case study <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="case-study" id="case-blackboard">
+                    Coordinated the national rollout of Blackboard Learn SaaS across universities, polytechnics, and colleges of education.
+                    <ul>
+                        <li>Institutional configuration and branding for each deployment</li>
+                        <li>Administrator onboarding and enablement sessions</li>
+                        <li>User provisioning and enrolment management</li>
+                        <li>Tier 2 / Tier 3 support coordination</li>
+                        <li>Documentation, SOPs, and training materials</li>
+                        <li>Post-deployment stabilisation and issue resolution</li>
+                    </ul>
+                </div>
             </div>
             <div class="project-card glass reveal">
                 <div class="icon">🛒</div>
@@ -1724,9 +1931,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     CONSULTANCY
-     ============================================================ -->
+<!-- CONSULTANCY -->
 <section id="consultancy">
     <div class="container">
         <div class="section-kicker reveal">// 06 · SERVICES</div>
@@ -1756,9 +1961,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     PERSONAL SERVICES
-     ============================================================ -->
+<!-- PERSONAL SERVICES -->
 <section id="services">
     <div class="container">
         <div class="section-kicker reveal">// 07 · PERSONAL SERVICES</div>
@@ -1783,9 +1986,14 @@
                     <li><i class="fas fa-check-circle"></i> Safe, punctual, and discreet</li>
                     <li><i class="fas fa-check-circle"></i> Flexible hours by arrangement</li>
                 </ul>
-                <a href="https://wa.me/2348151457503?text=Hi%20Lincoln%2C%20I%27d%20like%20to%20enquire%20about%20your%20weekend%20driving%20service." class="btn btn-cyan btn-sm service-btn">
-                    <i class="fab fa-whatsapp"></i> Book a Ride
-                </a>
+                <div class="service-actions">
+                    <a href="https://wa.me/2348151457503?text=Hi%20Lincoln%2C%20I%27d%20like%20to%20enquire%20about%20your%20weekend%20driving%20service." class="btn btn-cyan btn-sm">
+                        <i class="fab fa-whatsapp"></i> Book a Ride
+                    </a>
+                    <a href="mailto:sirlhynken7@gmail.com?subject=Weekend%20Driving%20Enquiry" class="btn btn-outline btn-sm">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
             </div>
 
             <!-- Computer Services -->
@@ -1803,17 +2011,20 @@
                     <li><i class="fas fa-check-circle"></i> Part replacements</li>
                     <li><i class="fas fa-check-circle"></i> New device purchases (within your budget)</li>
                 </ul>
-                <a href="https://wa.me/2348151457503?text=Hi%20Lincoln%2C%20I%27d%20like%20to%20enquire%20about%20your%20computer%20services." class="btn btn-cyan btn-sm service-btn">
-                    <i class="fab fa-whatsapp"></i> Get a Quote
-                </a>
+                <div class="service-actions">
+                    <a href="https://wa.me/2348151457503?text=Hi%20Lincoln%2C%20I%27d%20like%20to%20enquire%20about%20your%20computer%20services." class="btn btn-cyan btn-sm">
+                        <i class="fab fa-whatsapp"></i> Get a Quote
+                    </a>
+                    <a href="mailto:sirlhynken7@gmail.com?subject=Computer%20Services%20Enquiry" class="btn btn-outline btn-sm">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ============================================================
-     LEARNING
-     ============================================================ -->
+<!-- LEARNING -->
 <section id="learning">
     <div class="container">
         <div class="section-kicker reveal">// 08 · UPSKILLING</div>
@@ -1849,9 +2060,7 @@
     </div>
 </section>
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
+<!-- CONTACT -->
 <section id="contact">
     <div class="container">
         <div class="section-kicker reveal">// 09 · GET IN TOUCH</div>
@@ -1861,29 +2070,68 @@
             <div class="contact-item"><i class="fas fa-phone-alt"></i><div><strong>Phone</strong><span>+234 815 145 7503</span></div></div>
             <div class="contact-item"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>+234 815 145 7503</span></div></div>
             <div class="contact-item"><i class="fab fa-linkedin-in"></i><div><strong>LinkedIn</strong><span>Lincoln Benson</span></div></div>
-            <a href="Lincoln_Bensonxsirlhynken7@gmail.com.pdf" download class="btn btn-primary" style="margin-left:auto;"><i class="fas fa-download"></i> Full CV</a>
+        </div>
+
+        <!-- Contact form (WhatsApp-only + email fallback) -->
+        <div class="contact-form glass reveal">
+            <h3>// QUICK MESSAGE</h3>
+            <p>Fill in the fields below — clicking <strong>Send via WhatsApp</strong> opens WhatsApp with your message pre-filled.</p>
+            <form id="quickContactForm" onsubmit="return false;">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="cf-name">Your Name</label>
+                        <input type="text" id="cf-name" placeholder="e.g. Ada Okafor" required />
+                    </div>
+                    <div class="form-field">
+                        <label for="cf-org">Organization</label>
+                        <input type="text" id="cf-org" placeholder="e.g. University of Lagos" />
+                    </div>
+                    <div class="form-field full">
+                        <label for="cf-subject">Subject</label>
+                        <input type="text" id="cf-subject" placeholder="e.g. LMS Implementation Enquiry" required />
+                    </div>
+                    <div class="form-field full">
+                        <label for="cf-message">Message</label>
+                        <textarea id="cf-message" placeholder="Briefly describe what you need help with..." required></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-cyan" id="cf-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                    </button>
+                    <button type="button" class="btn btn-outline" id="cf-email">
+                        <i class="fas fa-envelope"></i> Send via Email
+                    </button>
+                    <a href="Lincoln_Bensonxsirlhynken7@gmail.com.pdf" download class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="Lincoln_Benson.vcf" download class="btn btn-outline">
+                        <i class="fas fa-address-card"></i> Save vCard
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="container">
         <p>&copy; 2025 Lincoln Benson · Enterprise Application Support Engineer · IT Consultant</p>
         <p style="margin-top:6px;"><a href="#">↑ Back to top</a></p>
+        <span class="last-updated" id="lastUpdated"></span>
     </div>
 </footer>
 
-<!-- ============================================================
-     ACHIEVEMENT TRAY
-     ============================================================ -->
+<!-- FLOATING SCROLL TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ACHIEVEMENT TRAY -->
 <div class="achievement-tray" id="achievementTray"></div>
 
-<!-- ============================================================
-     GAME — BYTE CATCHER
-     ============================================================ -->
+<!-- GAME TOGGLE + OVERLAY -->
 <button class="game-toggle" id="gameToggle">
     <i class="fas fa-gamepad"></i> PLAY BYTE CATCHER
 </button>
@@ -1920,9 +2168,6 @@
     </div>
 </div>
 
-<!-- ============================================================
-     SCRIPTS
-     ============================================================ -->
 <script>
 (function() {
     'use strict';
@@ -1933,6 +2178,7 @@
     const xpBar = document.getElementById('xpBar');
     const xpLabel = document.getElementById('xpLabel');
     const navLinks = document.querySelectorAll('[data-nav]');
+    const backToTop = document.getElementById('backToTop');
 
     function updateXP() {
         const scrollTop = window.scrollY;
@@ -1949,13 +2195,18 @@
         navLinks.forEach(link => {
             link.classList.toggle('active', link.dataset.nav === activeId);
         });
+
+        if (scrollTop > 600) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
     }
     window.addEventListener('scroll', updateXP, { passive: true });
     window.addEventListener('load', updateXP);
     updateXP();
 
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
     /* ============================================================
-       REVEAL ON SCROLL
+       REVEAL
        ============================================================ */
     const revealEls = document.querySelectorAll('.reveal');
     const revealObs = new IntersectionObserver((entries) => {
@@ -1999,7 +2250,7 @@
     countEls.forEach(el => countObs.observe(el));
 
     /* ============================================================
-       SKILL BAR FILL
+       SKILL BARS
        ============================================================ */
     const fills = document.querySelectorAll('.skill-bar .fill, .learning-card .bar .fill');
     const fillObs = new IntersectionObserver((entries) => {
@@ -2014,7 +2265,7 @@
     fills.forEach(el => fillObs.observe(el));
 
     /* ============================================================
-       ACHIEVEMENT TOASTS
+       ACHIEVEMENTS
        ============================================================ */
     const tray = document.getElementById('achievementTray');
     const shown = new Set();
@@ -2051,6 +2302,20 @@
     });
 
     /* ============================================================
+       CASE STUDY EXPANDER
+       ============================================================ */
+    document.querySelectorAll('.case-study-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const id = btn.dataset.target;
+            const cs = document.getElementById(id);
+            if (!cs) return;
+            const isOpen = cs.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+        });
+    });
+
+    /* ============================================================
        SMOOTH SCROLL
        ============================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -2060,6 +2325,59 @@
             const t = document.querySelector(href);
             if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         });
+    });
+
+    /* ============================================================
+       LAST UPDATED
+       ============================================================ */
+    const lastUpdated = document.getElementById('lastUpdated');
+    if (lastUpdated) {
+        const d = new Date(document.lastModified);
+        const opts = { year: 'numeric', month: 'short', day: 'numeric' };
+        lastUpdated.textContent = 'Last updated: ' + d.toLocaleDateString('en-GB', opts);
+    }
+
+    /* ============================================================
+       CONTACT FORM (WhatsApp + email)
+       ============================================================ */
+    function getFormData() {
+        return {
+            name: document.getElementById('cf-name').value.trim(),
+            org: document.getElementById('cf-org').value.trim(),
+            subject: document.getElementById('cf-subject').value.trim(),
+            message: document.getElementById('cf-message').value.trim()
+        };
+    }
+    function validateForm(d) {
+        if (!d.name || !d.subject || !d.message) {
+            alert('Please fill in your name, a subject, and a message before sending.');
+            return false;
+        }
+        return true;
+    }
+    document.getElementById('cf-whatsapp').addEventListener('click', () => {
+        const d = getFormData();
+        if (!validateForm(d)) return;
+        const text =
+            '*Name:* ' + d.name + '\n' +
+            (d.org ? '*Organization:* ' + d.org + '\n' : '') +
+            '*Subject:* ' + d.subject + '\n\n' +
+            d.message;
+        const url = 'https://wa.me/2348151457503?text=' + encodeURIComponent(text);
+        window.open(url, '_blank');
+        if (typeof gtag === 'function') gtag('event', 'contact_form', { method: 'whatsapp' });
+    });
+    document.getElementById('cf-email').addEventListener('click', () => {
+        const d = getFormData();
+        if (!validateForm(d)) return;
+        const subject = encodeURIComponent('[Portfolio] ' + d.subject);
+        const body = encodeURIComponent(
+            'Name: ' + d.name + '\n' +
+            (d.org ? 'Organization: ' + d.org + '\n' : '') +
+            '\n' + d.message
+        );
+        window.location.href = 'mailto:sirlhynken7@gmail.com?subject=' + subject + '&body=' + body;
+        if (typeof gtag === 'function') gtag('event', 'contact_form', { method: 'email' });
     });
 
     /* ============================================================
@@ -2094,17 +2412,11 @@
 
     function resetGame() {
         game = {
-            score: 0,
-            lives: 3,
-            level: 1,
-            running: false,
-            over: false,
-            items: [],
-            particles: [],
+            score: 0, lives: 3, level: 1,
+            running: false, over: false,
+            items: [], particles: [],
             paddle: { x: W / 2, y: H - 40, w: 90, h: 10 },
-            spawnTimer: 0,
-            spawnInterval: 900,
-            fallSpeed: 1.4,
+            spawnTimer: 0, spawnInterval: 900, fallSpeed: 1.4,
             lastTime: 0
         };
         scoreEl.textContent = '0';
@@ -2118,8 +2430,7 @@
         game.items.push({
             x: 30 + Math.random() * (W - 60),
             y: -size,
-            size: size,
-            vy: game.fallSpeed + Math.random() * 0.6,
+            size, vy: game.fallSpeed + Math.random() * 0.6,
             vx: (Math.random() - 0.5) * 0.6,
             bad: isBad,
             rot: Math.random() * Math.PI,
@@ -2130,11 +2441,10 @@
     function spawnParticles(x, y, color) {
         for (let i = 0; i < 10; i++) {
             game.particles.push({
-                x: x, y: y,
+                x, y,
                 vx: (Math.random() - 0.5) * 4,
                 vy: (Math.random() - 0.5) * 4,
-                life: 1,
-                color: color,
+                life: 1, color,
                 size: 2 + Math.random() * 2
             });
         }
@@ -2145,12 +2455,10 @@
         ctx.lineWidth = 1;
         const step = 45;
         for (let x = 0; x < W; x += step) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
         }
         for (let y = 0; y < H; y += step) {
-            ctx.beginPath();
-            ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
         }
     }
 
@@ -2203,8 +2511,7 @@
     function drawParticles() {
         for (let i = game.particles.length - 1; i >= 0; i--) {
             const pt = game.particles[i];
-            pt.x += pt.vx;
-            pt.y += pt.vy;
+            pt.x += pt.vx; pt.y += pt.vy;
             pt.life -= 0.025;
             if (pt.life <= 0) { game.particles.splice(i, 1); continue; }
             ctx.globalAlpha = pt.life;
@@ -2219,7 +2526,6 @@
 
     function updateGame(dt) {
         if (!game.running) return;
-
         game.spawnTimer += dt;
         if (game.spawnTimer > game.spawnInterval) {
             game.spawnTimer = 0;
@@ -2326,10 +2632,7 @@
     }
     canvas.addEventListener('mousemove', e => handleMove(e.clientX));
     canvas.addEventListener('touchmove', e => {
-        if (e.touches.length > 0) {
-            e.preventDefault();
-            handleMove(e.touches[0].clientX);
-        }
+        if (e.touches.length > 0) { e.preventDefault(); handleMove(e.touches[0].clientX); }
     }, { passive: false });
     canvas.addEventListener('touchstart', e => {
         if (e.touches.length > 0) handleMove(e.touches[0].clientX);
